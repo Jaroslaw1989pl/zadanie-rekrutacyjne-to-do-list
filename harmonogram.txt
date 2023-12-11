@@ -1,0 +1,4 @@
+06.12.2023 - 2h - nauka podstaw dockera, nginx
+07.12.2023 - 2h - docker i pdo/mysql, docker i php composer, tworzenie modelu Task, tworzenie kontrollera Task, tworzenie klas: Router, Request
+08.12.2003 - 0,5h - dokończenie klasy Router
+10.12.2023 - 1h - dalsze tworzenie klasy TaskModel i TaskController
