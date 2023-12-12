@@ -30,7 +30,7 @@ class TaskController
             if (!isset($request->body()['content']) || empty($request->body()['content']))
                 $response->code(422)->send('Unprocessable Content', []);
 
-            $task   = new TaskModel(id: time(), added_at: date('Y-m-d G:i:s'), content: 'test task', done: false);
+            $task   = new TaskModel(id: time(), added_at: date('Y-m-d G:i:s'), content: $request->body()['content'], done: false);
             $result = $task->add();
     
             $response->code(200)->send('OK', ['id' => $result]);

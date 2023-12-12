@@ -1,9 +1,5 @@
 <?php
 
-// echo '<pre>';
-// var_dump($_SERVER);
-// exit;
-
 require_once __DIR__.'/../vendor/autoload.php';
 
 

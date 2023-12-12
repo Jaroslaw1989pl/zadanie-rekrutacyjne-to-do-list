@@ -2,3 +2,6 @@
 07.12.2023 - 2h - docker i pdo/mysql, docker i php composer, tworzenie modelu Task, tworzenie kontrollera Task, tworzenie klas: Router, Request
 08.12.2003 - 0,5h - dokończenie klasy Router
 10.12.2023 - 1h - dalsze tworzenie klasy TaskModel i TaskController
+
+11.12.2023 - 1h - nauka docker i React, przypomnienie podstaw frameworka React
+12.12.2023 - 0,5h - przypomnienie podstaw frameworka React, tworzenie layoutu frontendu - component Form i List
