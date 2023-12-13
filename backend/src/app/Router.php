@@ -64,8 +64,21 @@ class Router
         return $this;
     }
 
+    public function options(array $action): Router
+    {
+        $this->routes['OPTIONS'][$this->route] = [
+            'class'  => $action[0],
+            'method' => $action[1]
+        ];
+
+        return $this;
+    }
+
     public function run(): void
     {
+        // echo '<pre>';
+        // var_dump($this->routes);
+        // exit;
         try {
 
             $callback = null;

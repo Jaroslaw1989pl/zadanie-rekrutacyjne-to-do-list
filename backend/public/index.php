@@ -16,8 +16,11 @@ $router = new Router(new Request, new Response);
 $router->route(path: '/task')
     ->get(action: [TaskController::class, 'get'])
     ->post(action: [TaskController::class, 'add']);
+    // ->options(action: [TaskController::class, 'options']);
 $router->route(path: '/task/{id}')
     ->patch(action: [TaskController::class, 'update'])
-    ->delete(action: [TaskController::class, 'delete']);
+    // ->options(action: [TaskController::class, 'options'])
+    ->delete(action: [TaskController::class, 'delete'])
+    ->options(action: [TaskController::class, 'options']);
     
 $router->run();

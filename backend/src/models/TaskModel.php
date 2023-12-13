@@ -13,7 +13,7 @@ class TaskModel extends Database
         private ?int    $id       = null,
         private ?string $added_at = null,
         private ?string $content  = null,
-        private ?bool   $done     = null
+        private ?int    $done     = null
     ) {
         parent::__construct();
     }
@@ -27,13 +27,13 @@ class TaskModel extends Database
         return $statement->fetchAll(\PDO::FETCH_ASSOC);
     }
 
-    public function find(): bool
+    public function find(): array|bool
     {
         $statement = $this->connection->prepare("SELECT * FROM tasks WHERE task_id = :task_id");
 
         $statement->execute(['task_id' => $this->id]);
 
-        return $statement->fetch(\PDO::FETCH_ASSOC) ? true : false;
+        return $statement->fetch(\PDO::FETCH_ASSOC);
     }
 
     public function add(): bool|string
@@ -43,7 +43,7 @@ class TaskModel extends Database
             'task_id'  => $this->id,
             'added_at' => $this->added_at,
             'content'  => $this->content,
-            'done'     => (int) $this->done
+            'done'     => $this->done
         ];
         $statement = $this->connection->prepare($query);
 
@@ -52,12 +52,12 @@ class TaskModel extends Database
         return $this->connection->lastInsertId();
     }
 
-    public function update(): int
+    public function update(int $done): int
     {
         $query  = "UPDATE tasks SET done = :done WHERE task_id = :task_id";
         $values = [
             'task_id' => $this->id,
-            'done'    => true
+            'done'    => $done
         ];
         $statement = $this->connection->prepare($query);
 

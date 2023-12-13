@@ -1,0 +1,6 @@
+.task-item {
+    text-decoration: none;
+}
+.task-item.done {
+    text-decoration: line-through;
+}

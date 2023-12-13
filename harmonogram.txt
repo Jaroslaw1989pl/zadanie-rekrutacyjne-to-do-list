@@ -4,4 +4,4 @@
 10.12.2023 - 1h - dalsze tworzenie klasy TaskModel i TaskController
 
 11.12.2023 - 1h - nauka docker i React, przypomnienie podstaw frameworka React
-12.12.2023 - 0,5h - przypomnienie podstaw frameworka React, tworzenie layoutu frontendu - component Form i List
+12.12.2023 - 1h - przypomnienie podstaw frameworka React, tworzenie layoutu frontendu - component Form i List

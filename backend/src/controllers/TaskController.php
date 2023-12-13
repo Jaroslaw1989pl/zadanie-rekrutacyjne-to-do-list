@@ -30,7 +30,7 @@ class TaskController
             if (!isset($request->body()['content']) || empty($request->body()['content']))
                 $response->code(422)->send('Unprocessable Content', []);
 
-            $task   = new TaskModel(id: time(), added_at: date('Y-m-d G:i:s'), content: $request->body()['content'], done: false);
+            $task   = new TaskModel(id: time(), added_at: date('Y-m-d G:i:s'), content: $request->body()['content'], done: 0);
             $result = $task->add();
     
             $response->code(200)->send('OK', ['id' => $result]);
@@ -43,11 +43,17 @@ class TaskController
     {
         try {
             $task = new TaskModel(id: (int) $id);
+
+            $result = $task->find();
             
-            if ($task->find() === false)
+            if ($result === false)
                 $response->code(422)->send('Unprocessable Content', ['error' => 'Product not exists']);
-            if ($task->update() === 0)
+
+            $done = $result['done'] === 0 ? 1 : 0;
+
+            if ($task->update($done) === 0)
                 $response->code(200)->send('OK', ['message' => 'Product already updated']);
+
             $response->code(200)->send('OK', ['id' => $id]);
         } catch (\Exception $exception) {
             $response->code(500)->send('Internal Server Error', ['error' => $exception->getMessage()]);
@@ -67,5 +73,10 @@ class TaskController
         } catch (\Exception $exception) {
             $response->code(500)->send('Internal Server Error', ['error' => $exception->getMessage()]);
         }
+    }
+
+    public function options(Request $request, Response $response, $id)
+    {
+        $response->code(200)->send('OK', ['id' => $id]);
     }
 }

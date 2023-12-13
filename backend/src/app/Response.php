@@ -37,7 +37,9 @@ class Response
         header_remove();
         header($this->protocol.' '.$this->code.' '.$message);
         header('Content-Type: application/json; charset=utf-8');
-        header('Access-Control-Allow-Origin: http://localhost:3000');
+        // header('Access-Control-Allow-Origin: http://localhost:3000');
+        header('Access-Control-Allow-Origin: *');
+        header('Access-Control-Allow-Methods: GET, POST, PATCH, DELETE, OPTIONS');
         
         foreach ($this->headers as $key => $value) header($key.': '.$value);
 
