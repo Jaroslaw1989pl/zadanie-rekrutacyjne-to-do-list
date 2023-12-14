@@ -1,0 +1,6 @@
+.task-content-input {
+    border: 1px solid #7e7e7e;
+}
+.task-content-input.red {
+    border: 2px solid #ff0000;
+}
